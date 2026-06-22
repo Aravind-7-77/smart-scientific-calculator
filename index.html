@@ -5,48 +5,57 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <h1>Smart Scientific Calculator</h1>
         <div class="calculator">
             <input type="text" id="display" readonly>
-            <div>
-            <button>⌫</button>
-            <button>c</button>
-            <button>%</button>
-            <button>x²</button>
+            <div class="top-controls">
+                <button id="historyBtn">History</button>
+                <button id="themeBtn">Dark Mode</button>
             </div>
-            <div>
-            <button>√</button>
-            <button>(</button>
-            <button>)</button>
-            <button>^</button>
+            <div class="buttons">
+                <button class="calc-btn">⌫</button>
+                <button class="calc-btn">c</button>
+                <button class="calc-btn">%</button>
+                <button class="calc-btn">/</button>
+
+                <button class="calc-btn">sin</button>
+                <button class="calc-btn">cos</button>
+                <button class="calc-btn">tan</button>
+                <button class="calc-btn">*</button>
+
+                <button class="calc-btn">log</button>
+                <button class="calc-btn">ln</button>
+                <button class="calc-btn">x²</button>
+                <button class="calc-btn">-</button>
+
+                <button class="calc-btn">√</button>
+                <button class="calc-btn">^</button>
+                <button class="calc-btn">!</button>
+                <button class="calc-btn">+</button>
+
+                <button class="calc-btn">7</button>
+                <button class="calc-btn">8</button>
+                <button class="calc-btn">9</button>
+                <button class="calc-btn equals">=</button>
+
+                <button class="calc-btn">4</button>
+                <button class="calc-btn">5</button>
+                <button class="calc-btn">6</button>
+
+                <button class="calc-btn">1</button>
+                <button class="calc-btn">2</button>
+                <button class="calc-btn">3</button>
+
+                <button class="calc-btn">.</button>
+                <button class="calc-btn">0</button>
+                <button class="calc-btn">π</button>
             </div>
-            <div>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>*</button>
-            </div>
-            <div>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>-</button>
-            </div>
-            <div>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>+</button>
-            </div>
-            <div>
-            <button>.</button>
-            <button>0</button>
-            <button>/</button>
-            <button>=</button>
-            </div>
-            <div class="history">  
-                <button style="width: auto;" id="clearHistory">clearHistory</button>
-                <h3>history: </h3>
+            <div class="history">
+                <h3>History</h3>
                 <ul id="historyList"></ul>
+                <button id="clearHistory">
+                    Clear History
+                </button>
             </div>
         </div>
         <script src="script.js"></script>

@@ -1,7 +1,43 @@
-const buttons=document.querySelectorAll("button");
+const buttons = document.querySelectorAll(".calc-btn");
 const display=document.getElementById("display");
 const historyList=document.getElementById("historyList");
 const clearHistoryBtn=document.getElementById("clearHistory");
+const themeBtn = document.getElementById("themeBtn");
+const historyBtn = document.getElementById("historyBtn");
+const historySection = document.querySelector(".history");
+
+historySection.classList.add("hidden");
+
+historyBtn.addEventListener("click", () => {
+
+    historySection.classList.toggle("hidden");
+
+
+    if(historySection.classList.contains("hidden")){
+        historyBtn.textContent = "History";
+    }
+    else{
+        historyBtn.textContent = "Hide History";
+    }
+});
+if(localStorage.getItem("theme") === "dark"){
+    document.body.classList.add("dark");
+    themeBtn.textContent = "Light Mode";
+}
+
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    if(document.body.classList.contains("dark")){
+        localStorage.setItem("theme", "dark");
+        themeBtn.textContent = "Light Mode";
+    }
+    else{
+        localStorage.setItem("theme", "light");
+        themeBtn.textContent = "Dark Mode";
+    }
+
+});
+
 let history=JSON.parse(localStorage.getItem("history")) || [];
 let updateHistory=()=>{
     historyList.innerHTML="";
@@ -11,6 +47,7 @@ let updateHistory=()=>{
         historyList.appendChild(li);
     });
 }
+
 clearHistoryBtn.addEventListener("click",()=>{
     history=[]
     localStorage.removeItem("history");
@@ -39,6 +76,21 @@ function calculate(){
     }
 }
 
+function factorial(n){
+    if(n < 0)
+        return "Error";
+
+    let ans = 1;
+
+    for(let i = 2; i <= n; i++)
+        ans *= i;
+
+    return ans;
+}
+function clean(num){
+    return parseFloat(num.toFixed(10));
+}
+
 let justCalculated=false;
 buttons.forEach(button => {
     button.addEventListener("click" , () => {
@@ -55,6 +107,44 @@ buttons.forEach(button => {
         else if(button.textContent==="x²"){
             let num=Number(display.value);
             display.value=num*num;
+        }
+        else if(button.textContent === "π"){
+            display.value += clean(Math.PI);
+        }
+        else if(button.textContent === "sin"){
+            let num = Number(display.value);
+            display.value = clean(Math.sin(num * Math.PI / 180));
+        }
+        else if(button.textContent === "cos"){
+            let num = Number(display.value);
+            display.value =clean(Math.cos(num * Math.PI / 180));
+        }
+        else if(button.textContent === "tan"){
+            let num = Number(display.value);
+            display.value = clean(Math.tan(num * Math.PI / 180));
+        }
+        else if(button.textContent === "log"){
+            let num = Number(display.value);
+            if(num <= 0)
+                display.value = "Error";
+            else
+                display.value = Math.log10(num);
+        }
+        else if(button.textContent === "ln"){
+            let num = Number(display.value);
+
+            if(num <= 0)
+                display.value = "Error";
+            else
+                display.value = Math.log(num);
+        }
+        else if(button.textContent === "!"){
+            let num = Number(display.value);
+
+            if(!Number.isInteger(num) || num < 0)
+                display.value = "Error";
+            else
+                display.value = factorial(num);
         }
         else if(button.textContent==="√"){
             let num=Number(display.value);
