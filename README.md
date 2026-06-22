@@ -17,6 +17,18 @@ A scientific calculator built using HTML, CSS and JavaScript.
 - CSS
 - JavaScript
 
+## Screenshot
+
+![Calculator Screenshot](calculator-screenshot.png)
+
+## Features
+
+- Scientific functions
+- Dark Mode
+- History
+- Keyboard Support
+- Local Storage
+
 ## Author
 
-Aravind
+Aravind Thota
