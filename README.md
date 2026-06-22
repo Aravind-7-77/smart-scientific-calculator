@@ -19,7 +19,7 @@ A scientific calculator built using HTML, CSS and JavaScript.
 
 ## Screenshot
 
-![Calculator Screenshot](calculator-screenshot.png)
+![Calculator Screenshot](calculator_screenshot.png)
 
 ## Features
 
